@@ -1468,23 +1468,27 @@ body.in-dark-section .hamburger-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-surface-soft) 100%);
+  background: radial-gradient(ellipse at 50% 65%, rgba(21, 128, 61, 0.05) 0%, rgba(243, 247, 244, 0.65) 60%, transparent 100%);
   border-radius: var(--radius-lg);
   margin-bottom: var(--space-4);
   border: 1px solid var(--border-subtle);
   padding: var(--space-3);
   overflow: hidden;
+  position: relative;
 }
 
 .vehicle-3d-visual img {
-  max-height: 160px;
-  width: 100%;
+  max-height: 155px;
+  width: auto;
+  max-width: 92%;
   object-fit: contain;
-  transition: transform var(--transition-normal);
+  filter: drop-shadow(0 14px 22px rgba(17, 24, 20, 0.12));
+  transition: transform 0.45s var(--ease-out), filter 0.45s var(--ease-out);
 }
 
 .vehicle-card:hover .vehicle-3d-visual img {
-  transform: scale(1.05) translateY(-3px);
+  transform: translateY(-6px) scale(1.06);
+  filter: drop-shadow(0 22px 32px rgba(17, 24, 20, 0.18));
 }
 
 /* Media Cards */
@@ -1493,39 +1497,49 @@ body.in-dark-section .hamburger-btn {
   border-radius: var(--radius-xl);
   overflow: hidden;
   border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-card);
-  background-color: #FAFBFA;
+  box-shadow: 0 4px 20px rgba(17, 24, 20, 0.06);
+  background-color: var(--bg-surface-soft);
 }
 
 .media-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-normal);
+  display: block;
+  transition: transform 0.7s var(--ease-out);
 }
 
 .media-card:hover img {
-  transform: scale(1.02);
+  transform: scale(1.03);
+}
+
+.media-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(8, 13, 11, 0.55) 100%);
+  pointer-events: none;
 }
 
 .media-badge-overlay {
   position: absolute;
   bottom: var(--space-4);
   left: var(--space-4);
-  background: rgba(17, 24, 20, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  z-index: 2;
+  background: rgba(17, 24, 20, 0.82);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
   color: #FFFFFF;
-  padding: 0.45rem 0.95rem;
+  padding: 0.4rem 0.9rem;
   border-radius: var(--radius-pill);
   font-family: var(--font-display);
-  font-size: 0.8rem;
+  font-size: 0.775rem;
   font-weight: 480;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 }
 
 .hero-editorial-visual {
@@ -1534,7 +1548,7 @@ body.in-dark-section .hamburger-btn {
   overflow: hidden;
   position: relative;
   border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 6px 24px rgba(17, 24, 20, 0.07);
   height: 240px;
 }
 
