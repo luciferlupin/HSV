@@ -1,19 +1,18 @@
 /**
- * HSV AUTO RECYCLING — CORE CLIENT JAVASCRIPT
- * Bhiwani, Haryana, India
- * Fast, lightweight, accessible, zero third-party dependencies
+ * HSV AUTO RECYCLING — HIGH-PERFORMANCE INTERACTIVE MOTION CONTROLLER
+ * Apple-inspired Storytelling • 60 FPS Scroll Choreography • Zero Bloat
  */
 
 (function () {
   "use strict";
 
-  // Configuration & Constants
   const HSV_PHONE = "9896226697";
-  const HSV_PHONE_INTL = "+919896226697";
   const HSV_WHATSAPP_BASE = "https://wa.me/919896226697";
-  const DEFAULT_WA_MESSAGE = "Hi HSV Auto Recycling, I want to get a quote for scrapping my vehicle.";
 
-  // Analytics Event Tracker
+  // Check prefers-reduced-motion
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Analytics Event Dispatcher
   function trackEvent(eventName, payload = {}) {
     try {
       const eventDetail = { eventName, payload, timestamp: new Date().toISOString() };
@@ -21,13 +20,10 @@
       if (window.dataLayer && Array.isArray(window.dataLayer)) {
         window.dataLayer.push({ event: eventName, ...payload });
       }
-      // console.log("[HSV Analytics]", eventName, payload);
-    } catch (e) {
-      // safe fallback
-    }
+    } catch (e) {}
   }
 
-  // Toast Notification
+  // Toast System
   function showToast(message, duration = 4000) {
     let toast = document.getElementById("hsv-toast");
     if (!toast) {
@@ -51,24 +47,189 @@
     }, duration);
   }
 
-  // Sticky Header Scroll State
-  function initHeaderScroll() {
+  // 1. Sticky Navigation & Scroll Direction Control
+  function initHeader() {
     const header = document.querySelector(".site-header");
     if (!header) return;
 
-    const handleScroll = () => {
-      if (window.scrollY > 15) {
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function onScroll() {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > 20) {
         header.classList.add("is-scrolled");
       } else {
         header.classList.remove("is-scrolled");
       }
-    };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+      lastScrollY = currentScrollY;
+      ticking = false;
+    }
+
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(onScroll);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    onScroll();
   }
 
-  // Mobile Navigation Sheet
+  // 2. Word-by-Word Scroll Reveal & Illumination
+  function initHeadingWordIllumination() {
+    if (prefersReducedMotion) return;
+
+    const headings = document.querySelectorAll(".reveal-words");
+    headings.forEach((h) => {
+      const words = h.textContent.trim().split(/\s+/);
+      h.innerHTML = words.map((w) => `<span class="reveal-word">${w}</span> `).join("");
+    });
+
+    const allWordSpans = document.querySelectorAll(".reveal-word");
+    if (!allWordSpans.length) return;
+
+    function checkWords() {
+      const vh = window.innerHeight;
+      allWordSpans.forEach((span) => {
+        const rect = span.getBoundingClientRect();
+        // Illuminate when word enters bottom 85% of viewport
+        if (rect.top < vh * 0.85) {
+          span.classList.add("is-illuminated");
+        } else {
+          span.classList.remove("is-illuminated");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", () => {
+      window.requestAnimationFrame(checkWords);
+    }, { passive: true });
+
+    checkWords();
+  }
+
+  // 3. General Scroll Reveal via IntersectionObserver
+  function initScrollReveals() {
+    const revealEls = document.querySelectorAll(".scroll-reveal");
+    if (!revealEls.length) return;
+
+    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+      revealEls.forEach((el) => el.classList.add("is-revealed"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { root: null, rootMargin: "0px 0px -60px 0px", threshold: 0.1 }
+    );
+
+    revealEls.forEach((el) => observer.observe(el));
+  }
+
+  // 4. Sticky Storytelling & Animated Timeline Progress
+  function initStickyStorytelling() {
+    const storyteller = document.querySelector(".sticky-storyteller-grid");
+    if (!storyteller) return;
+
+    const steps = storyteller.querySelectorAll(".timeline-step-item");
+    const previewImg = storyteller.querySelector(".sticky-preview-img");
+    const fillBar = storyteller.querySelector(".timeline-fill-bar");
+    const previewCaption = storyteller.querySelector(".sticky-preview-caption");
+
+    if (!steps.length) return;
+
+    function updateTimeline() {
+      const vh = window.innerHeight;
+      let activeIndex = 0;
+
+      steps.forEach((step, idx) => {
+        const rect = step.getBoundingClientRect();
+        // Check if middle of step is near middle of viewport
+        if (rect.top <= vh * 0.55) {
+          activeIndex = idx;
+        }
+      });
+
+      steps.forEach((step, idx) => {
+        step.classList.toggle("is-active", idx === activeIndex);
+      });
+
+      // Update fill bar height (percentage of progress)
+      if (fillBar) {
+        const progressPercent = (activeIndex / (steps.length - 1)) * 100;
+        fillBar.style.height = `${Math.max(10, Math.min(100, progressPercent))}%`;
+      }
+
+      // Update sticky image based on active step data-img attribute
+      const activeStep = steps[activeIndex];
+      if (activeStep && previewImg) {
+        const targetImg = activeStep.getAttribute("data-preview-img");
+        const targetCaption = activeStep.getAttribute("data-preview-caption");
+        if (targetImg && previewImg.getAttribute("data-current") !== targetImg) {
+          previewImg.style.opacity = "0.2";
+          previewImg.style.transform = "scale(0.98)";
+          setTimeout(() => {
+            previewImg.src = targetImg;
+            previewImg.setAttribute("data-current", targetImg);
+            previewImg.style.opacity = "1";
+            previewImg.style.transform = "scale(1)";
+            if (previewCaption && targetCaption) {
+              previewCaption.textContent = targetCaption;
+            }
+          }, 150);
+        }
+      }
+    }
+
+    window.addEventListener("scroll", () => {
+      window.requestAnimationFrame(updateTimeline);
+    }, { passive: true });
+
+    updateTimeline();
+  }
+
+  // 5. Scroll-driven Light -> Dark Transition Observation
+  function initThemeTransitions() {
+    const darkSections = document.querySelectorAll(".theme-dark-transition-wrapper");
+    if (!darkSections.length) return;
+
+    const header = document.querySelector(".site-header");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            document.body.classList.add("in-dark-section");
+            if (header) {
+              header.style.backgroundColor = "rgba(8, 13, 11, 0.85)";
+              header.style.borderBottomColor = "#1C2E24";
+            }
+          } else {
+            document.body.classList.remove("in-dark-section");
+            if (header) {
+              header.style.backgroundColor = "";
+              header.style.borderBottomColor = "";
+            }
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    darkSections.forEach((sec) => observer.observe(sec));
+  }
+
+  // 6. Mobile Navigation Sheet
   function initMobileNav() {
     const hamburgerBtn = document.querySelector(".hamburger-btn");
     const mobileSheet = document.querySelector(".mobile-nav-sheet");
@@ -84,12 +245,10 @@
 
     hamburgerBtn.addEventListener("click", () => toggleMenu());
 
-    // Close on navigation link click
     mobileSheet.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => toggleMenu(false));
     });
 
-    // Close on Escape key
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && mobileSheet.classList.contains("is-open")) {
         toggleMenu(false);
@@ -97,7 +256,7 @@
     });
   }
 
-  // Chip Group Selectors
+  // 7. Interactive Chip Selectors
   function initChipSelectors() {
     document.querySelectorAll(".chip-group").forEach((group) => {
       const hiddenInput = group.querySelector("input[type='hidden']");
@@ -119,19 +278,18 @@
     });
   }
 
-  // Uppercase Vehicle Number Formatter
+  // 8. Auto-Uppercase & Registration Formatter
   function initVehicleNumberInputs() {
     document.querySelectorAll(".uppercase-input").forEach((input) => {
       input.addEventListener("input", (e) => {
         let val = e.target.value.toUpperCase();
-        // Keep alphanumeric and single spaces
         val = val.replace(/[^A-Z0-9 ]/g, "");
         e.target.value = val;
       });
     });
   }
 
-  // Build dynamic WhatsApp enquiry text
+  // 9. WhatsApp Quote URL Builder
   function buildWhatsAppQuoteUrl(formData = {}) {
     const parts = ["Hi HSV Auto Recycling, I want to get a quote for scrapping my vehicle."];
     if (formData.name) parts.push(`• Name: ${formData.name}`);
@@ -142,22 +300,17 @@
     if (formData.location) parts.push(`• Location: ${formData.location}`);
     if (formData.message) parts.push(`• Note: ${formData.message}`);
 
-    const message = parts.join("\n");
-    return `${HSV_WHATSAPP_BASE}?text=${encodeURIComponent(message)}`;
+    return `${HSV_WHATSAPP_BASE}?text=${encodeURIComponent(parts.join("\n"))}`;
   }
 
-  // Indian Phone Validation Helper
   function isValidIndianPhone(phone) {
     const cleaned = phone.replace(/[\s\-\+\(\)]/g, "");
-    // Standard 10 digit Indian mobile starting with 6, 7, 8, 9, or with 91 prefix
     return /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$/.test(cleaned);
   }
 
-  // Quote Enquiry Form
+  // 10. Quote Form Submission & Validation
   function initQuoteForms() {
-    const quoteForms = document.querySelectorAll(".quote-form");
-
-    quoteForms.forEach((form) => {
+    document.querySelectorAll(".quote-form").forEach((form) => {
       const vehicleNumInput = form.querySelector("[name='vehicle_number']");
       const phoneInput = form.querySelector("[name='mobile_number']");
       const nameInput = form.querySelector("[name='name']");
@@ -168,7 +321,6 @@
       const askWaBtn = form.querySelector(".ask-whatsapp-btn");
       const successBanner = form.parentElement.querySelector(".form-success-banner");
 
-      // Track first interaction
       let hasInteracted = false;
       form.addEventListener("focusin", () => {
         if (!hasInteracted) {
@@ -177,7 +329,6 @@
         }
       });
 
-      // Quick Ask on WhatsApp with current form fields
       if (askWaBtn) {
         askWaBtn.addEventListener("click", (e) => {
           e.preventDefault();
@@ -198,25 +349,16 @@
         e.preventDefault();
         let isValid = true;
 
-        // Clear errors
         form.querySelectorAll(".is-invalid").forEach((el) => el.classList.remove("is-invalid"));
 
-        // Validate Phone
-        if (phoneInput) {
-          const phoneVal = phoneInput.value.trim();
-          if (!isValidIndianPhone(phoneVal)) {
-            phoneInput.classList.add("is-invalid");
-            isValid = false;
-          }
+        if (phoneInput && !isValidIndianPhone(phoneInput.value.trim())) {
+          phoneInput.classList.add("is-invalid");
+          isValid = false;
         }
 
-        // Validate Vehicle Number (at least 4 chars)
-        if (vehicleNumInput) {
-          const vehVal = vehicleNumInput.value.trim();
-          if (vehVal.length < 4) {
-            vehicleNumInput.classList.add("is-invalid");
-            isValid = false;
-          }
+        if (vehicleNumInput && vehicleNumInput.value.trim().length < 4) {
+          vehicleNumInput.classList.add("is-invalid");
+          isValid = false;
         }
 
         if (!isValid) {
@@ -224,7 +366,6 @@
           return;
         }
 
-        // Simulate fast enquiry dispatch & store locally
         const enquiryData = {
           name: nameInput ? nameInput.value.trim() : "Vehicle Owner",
           phone: phoneInput ? phoneInput.value.trim() : "",
@@ -236,22 +377,9 @@
 
         trackEvent("quote_form_submitted", enquiryData);
 
-        // UI Loading
         const originalBtnText = submitBtn.innerHTML;
         submitBtn.disabled = true;
-        submitBtn.innerHTML = `
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin-icon">
-            <line x1="12" y1="2" x2="12" y2="6"></line>
-            <line x1="12" y1="18" x2="12" y2="22"></line>
-            <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
-            <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
-            <line x1="2" y1="12" x2="6" y2="12"></line>
-            <line x1="18" y1="12" x2="22" y2="12"></line>
-            <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
-            <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
-          </svg>
-          Submitting...
-        `;
+        submitBtn.innerHTML = `Submitting...`;
 
         setTimeout(() => {
           submitBtn.disabled = false;
@@ -261,7 +389,6 @@
             form.style.display = "none";
             successBanner.classList.add("is-active");
 
-            // Update success banner buttons with exact dynamic link
             const waBtnInSuccess = successBanner.querySelector(".success-wa-btn");
             if (waBtnInSuccess) {
               waBtnInSuccess.href = buildWhatsAppQuoteUrl(enquiryData);
@@ -269,45 +396,12 @@
           }
 
           showToast("Thanks! HSV Auto Recycling has received your enquiry.");
-        }, 700);
+        }, 650);
       });
     });
   }
 
-  // Business Enquiry Form
-  function initBusinessForm() {
-    const bizForm = document.querySelector("#business-enquiry-form");
-    if (!bizForm) return;
-
-    bizForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const phoneInput = bizForm.querySelector("[name='phone']");
-      const companyInput = bizForm.querySelector("[name='company_name']");
-
-      if (phoneInput && !isValidIndianPhone(phoneInput.value.trim())) {
-        phoneInput.classList.add("is-invalid");
-        showToast("Please enter a valid 10-digit mobile number.");
-        return;
-      }
-
-      trackEvent("business_enquiry_submitted", {
-        company: companyInput ? companyInput.value.trim() : ""
-      });
-
-      const submitBtn = bizForm.querySelector("button[type='submit']");
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Submitting Enquiry...";
-
-      setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Enquiry Submitted Successfully";
-        bizForm.reset();
-        showToast("HSV Auto Recycling will review your bulk vehicle request.");
-      }, 700);
-    });
-  }
-
-  // FAQ Accordion
+  // 11. FAQ Accordion (Apple Style)
   function initFAQ() {
     const faqItems = document.querySelectorAll(".faq-item");
     faqItems.forEach((item) => {
@@ -317,7 +411,6 @@
       btn.addEventListener("click", () => {
         const isOpen = item.classList.contains("is-open");
 
-        // Close other items for crisp accordion feel
         faqItems.forEach((other) => {
           if (other !== item) {
             other.classList.remove("is-open");
@@ -332,49 +425,7 @@
     });
   }
 
-  // Track Direct Contact Clicks
-  function initClickTracking() {
-    document.querySelectorAll("a[href^='tel:']").forEach((link) => {
-      link.addEventListener("click", () => trackEvent("phone_clicked", { href: link.href }));
-    });
-
-    document.querySelectorAll("a[href*='wa.me'], a[href*='whatsapp.com']").forEach((link) => {
-      link.addEventListener("click", () => trackEvent("whatsapp_clicked", { href: link.href }));
-    });
-
-    document.querySelectorAll("a[href^='mailto:']").forEach((link) => {
-      link.addEventListener("click", () => trackEvent("email_clicked", { href: link.href }));
-    });
-
-    document.querySelectorAll("a[href*='maps']").forEach((link) => {
-      link.addEventListener("click", () => trackEvent("directions_clicked", { href: link.href }));
-    });
-  }
-
-  // Smooth Anchor Navigation Offset
-  function initSmoothScroll() {
-    document.querySelectorAll("a[href^='#']").forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        const targetId = this.getAttribute("href");
-        if (targetId === "#" || targetId.length < 2) return;
-
-        const targetEl = document.querySelector(targetId);
-        if (targetEl) {
-          e.preventDefault();
-          const headerOffset = 80;
-          const elementPosition = targetEl.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-          });
-        }
-      });
-    });
-  }
-
-  // High-Quality Bilingual Architecture (EN | हिंदी)
+  // 12. Bilingual Toggle Architecture (EN | हिंदी)
   const translations = {
     hi: {
       location_pill: "● भिवानी, हरियाणा",
@@ -384,19 +435,12 @@
       btn_get_quote: "स्क्रैप कोट प्राप्त करें",
       btn_whatsapp: "व्हाट्सएप करें",
       btn_call: "कॉल करें",
-      trust_1: "✓ स्क्रैप वाहन",
-      trust_2: "✓ तुरंत भुगतान",
-      trust_3: "✓ RC कैंसलेशन सहायता",
-      trust_4: "✓ वाहन पिकअप सहायता",
+      trust_1: "स्क्रैप वाहन",
+      trust_2: "तुरंत भुगतान",
+      trust_3: "RC कैंसलेशन",
+      trust_4: "पिकअप सहायता",
       quote_title: "स्क्रैप कोट प्राप्त करें",
-      quote_sub: "गाड़ी की जानकारी दें। HSV टीम आपसे संपर्क करेगी।",
-      label_veh_no: "गाड़ी नंबर",
-      label_veh_type: "वाहन प्रकार",
-      label_veh_cond: "वाहन की स्थिति",
-      label_pickup_loc: "पिकअप स्थान",
-      label_name: "नाम",
-      label_phone: "मोबाइल नंबर",
-      tagline_footer: "“हम स्क्रैप वाहनों में डील करते हैं”"
+      quote_sub: "गाड़ी की जानकारी दें। HSV टीम आपसे संपर्क करेगी।"
     },
     en: {
       location_pill: "● Bhiwani, Haryana",
@@ -406,19 +450,12 @@
       btn_get_quote: "GET MY SCRAP QUOTE",
       btn_whatsapp: "WHATSAPP US",
       btn_call: "Call 9896226697",
-      trust_1: "✓ Scrap Vehicles",
-      trust_2: "✓ Instant Payment",
-      trust_3: "✓ RC Cancellation",
-      trust_4: "✓ Pickup Assistance",
+      trust_1: "Scrap Vehicles",
+      trust_2: "Instant Payment",
+      trust_3: "RC Cancellation",
+      trust_4: "Pickup Assistance",
       quote_title: "Get your scrap quote",
-      quote_sub: "Tell us about your vehicle. We'll contact you with the next steps.",
-      label_veh_no: "Vehicle Number",
-      label_veh_type: "Vehicle Type",
-      label_veh_cond: "Vehicle Condition",
-      label_pickup_loc: "Pickup Location",
-      label_name: "Name",
-      label_phone: "Mobile Number",
-      tagline_footer: "“We Deal In Scrap Vehicles”"
+      quote_sub: "Tell us about your vehicle. We'll contact you with the next steps."
     }
   };
 
@@ -439,30 +476,25 @@
     }
 
     langBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const lang = btn.getAttribute("data-lang");
-        setLanguage(lang);
-      });
+      btn.addEventListener("click", () => setLanguage(btn.getAttribute("data-lang")));
     });
 
-    // Check saved language preference
     const savedLang = localStorage.getItem("hsv_lang") || "en";
-    if (savedLang === "hi") {
-      setLanguage("hi");
-    }
+    if (savedLang === "hi") setLanguage("hi");
   }
 
-  // Initialize all components once DOM is loaded
+  // DOM Ready Initialization
   document.addEventListener("DOMContentLoaded", () => {
-    initHeaderScroll();
+    initHeader();
+    initHeadingWordIllumination();
+    initScrollReveals();
+    initStickyStorytelling();
+    initThemeTransitions();
     initMobileNav();
     initChipSelectors();
     initVehicleNumberInputs();
     initQuoteForms();
-    initBusinessForm();
     initFAQ();
-    initClickTracking();
-    initSmoothScroll();
     initLanguageSwitcher();
   });
 })();
