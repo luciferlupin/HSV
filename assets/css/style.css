@@ -367,6 +367,22 @@ p.lead, .lead, .subpage-hero-lead {
   border: 1px solid rgba(21, 128, 61, 0.15);
 }
 
+/* Vehicle spec pill */
+.vehicle-spec-pill {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 0.825rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--color-primary);
+  background-color: var(--bg-surface-soft);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(21, 128, 61, 0.15);
+  white-space: nowrap;
+}
+
 /* Eligibility note & vehicle card elements */
 .eligibility-note {
   font-size: 0.8rem;
@@ -397,6 +413,9 @@ p.lead, .lead, .subpage-hero-lead {
   font-weight: 450;
   letter-spacing: -0.02em;
   margin-bottom: var(--space-2);
+  min-height: 2.4em;
+  display: flex;
+  align-items: flex-start;
 }
 
 .vehicle-card-desc {
@@ -404,7 +423,19 @@ p.lead, .lead, .subpage-hero-lead {
   font-weight: 350;
   line-height: 1.6;
   color: var(--text-secondary);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
+  flex: 1 1 auto;
+}
+
+.vehicle-card-specs {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+  line-height: 1.55;
+  background-color: var(--bg-surface-soft);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(21, 128, 61, 0.1);
 }
 
 .vehicle-card-footer {
@@ -415,6 +446,7 @@ p.lead, .lead, .subpage-hero-lead {
   align-items: center;
   justify-content: space-between;
   gap: var(--space-3);
+  width: 100%;
 }
 
 /* ==========================================================================
@@ -423,6 +455,15 @@ p.lead, .lead, .subpage-hero-lead {
 .container {
   width: 100%;
   max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 4vw, 2.75rem);
+  padding-right: clamp(1.25rem, 4vw, 2.75rem);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 980px;
   margin-left: auto;
   margin-right: auto;
   padding-left: clamp(1.25rem, 4vw, 2.75rem);
@@ -1180,16 +1221,94 @@ body.in-dark-section .hamburger-btn {
   font-weight: 400;
 }
 
+/* Placeholder System — Apple Typography, Muted Contrast & Vertical Alignment */
+::placeholder {
+  color: #94A3B8;
+  opacity: 1;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 350;
+  letter-spacing: normal;
+  text-transform: none;
+  line-height: normal;
+}
+::-webkit-input-placeholder {
+  color: #94A3B8;
+  opacity: 1;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 350;
+  letter-spacing: normal;
+  text-transform: none;
+  line-height: normal;
+}
+::-moz-placeholder {
+  color: #94A3B8;
+  opacity: 1;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 350;
+  letter-spacing: normal;
+  text-transform: none;
+  line-height: normal;
+}
+:-ms-input-placeholder {
+  color: #94A3B8;
+  opacity: 1;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 350;
+  letter-spacing: normal;
+  text-transform: none;
+  line-height: normal;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+@media (max-width: 540px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 .form-input, .form-select, .form-textarea {
   width: 100%;
-  min-height: 46px;
-  padding: 0.65rem 0.95rem;
+  height: 48px;
+  min-height: 48px;
+  padding: 0 1rem;
+  box-sizing: border-box;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-subtle);
   background-color: #FAFBFA;
+  font-family: var(--font-body);
   font-size: 0.925rem;
   color: var(--text-primary);
+  display: flex;
+  align-items: center;
   transition: all var(--transition-fast);
+}
+
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23525D56' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.form-textarea {
+  height: auto;
+  min-height: 104px;
+  padding: 0.75rem 1rem;
+  resize: vertical;
+  line-height: 1.55;
 }
 
 .form-input:focus, .form-select:focus, .form-textarea:focus {
@@ -1207,7 +1326,7 @@ body.in-dark-section .hamburger-btn {
 .form-error-msg {
   font-size: var(--text-caption);
   color: #DC2626;
-  margin-top: 2px;
+  margin-top: 4px;
   display: none;
 }
 
@@ -1228,10 +1347,15 @@ body.in-dark-section .hamburger-btn {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
+  align-items: center;
 }
 
 .choice-chip {
-  padding: 0.45rem 0.85rem;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.95rem;
   border-radius: var(--radius-pill);
   font-family: var(--font-display);
   font-size: 0.825rem;
@@ -1240,6 +1364,7 @@ body.in-dark-section .hamburger-btn {
   background-color: #FAFBFA;
   color: var(--text-secondary);
   cursor: pointer;
+  white-space: nowrap;
   transition: all var(--transition-fast);
 }
 
@@ -1252,6 +1377,7 @@ body.in-dark-section .hamburger-btn {
   background-color: var(--color-primary-subtle);
   color: var(--color-forest);
   border-color: var(--color-primary);
+  box-shadow: 0 0 0 1px var(--color-primary);
 }
 
 .form-notice {
@@ -1410,6 +1536,7 @@ body.in-dark-section .hamburger-btn {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-5);
+  align-items: stretch;
 }
 
 .bento-card {
@@ -1420,7 +1547,12 @@ body.in-dark-section .hamburger-btn {
   transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
   display: flex;
   flex-direction: column;
+  height: 100%;
   position: relative;
+}
+
+.bento-card p {
+  flex: 1 1 auto;
 }
 
 .bento-card:hover {
@@ -1465,6 +1597,7 @@ body.in-dark-section .hamburger-btn {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6);
+  align-items: stretch;
 }
 
 .vehicle-card {
@@ -1475,6 +1608,7 @@ body.in-dark-section .hamburger-btn {
   transition: all var(--transition-normal);
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .vehicle-card:hover {
@@ -1585,12 +1719,13 @@ body.in-dark-section .hamburger-btn {
 .paperwork-split-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 4vw, 3.5rem);
+  gap: 0;
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-card);
+  align-items: stretch;
 }
 
 .paperwork-left {
@@ -1648,6 +1783,7 @@ body.in-dark-section .hamburger-btn {
   border-radius: var(--radius-lg);
   padding: var(--space-6);
   box-shadow: var(--shadow-subtle);
+  height: 100%;
 }
 
 /* ==========================================================================
@@ -1656,8 +1792,9 @@ body.in-dark-section .hamburger-btn {
 .why-bento-grid {
   display: grid;
   grid-template-columns: 1.35fr 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-rows: 1fr 1fr;
   gap: var(--space-5);
+  align-items: stretch;
 }
 
 .why-card-main {
@@ -1669,6 +1806,7 @@ body.in-dark-section .hamburger-btn {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
 }
 
 .why-card-sub {
@@ -1679,6 +1817,11 @@ body.in-dark-section .hamburger-btn {
   transition: all var(--transition-normal);
   display: flex;
   flex-direction: column;
+  height: 100%;
+}
+
+.why-card-sub p {
+  flex: 1 1 auto;
 }
 
 .why-card-sub:hover {
@@ -1694,14 +1837,23 @@ body.in-dark-section .hamburger-btn {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(2rem, 4vw, 3.5rem);
-  align-items: start;
+  align-items: stretch;
+}
+
+.business-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  box-shadow: var(--shadow-card);
+  height: fit-content;
 }
 
 .service-area-grid {
   display: grid;
   grid-template-columns: 1fr 1.25fr;
   gap: clamp(1.5rem, 3.5vw, 3rem);
-  align-items: center;
+  align-items: stretch;
 }
 
 .location-info-card {
@@ -1712,6 +1864,8 @@ body.in-dark-section .hamburger-btn {
   box-shadow: var(--shadow-subtle);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   gap: var(--space-5);
 }
 
@@ -1720,7 +1874,8 @@ body.in-dark-section .hamburger-btn {
   overflow: hidden;
   border: 1px solid var(--border-subtle);
   box-shadow: var(--shadow-card);
-  height: 440px;
+  height: 100%;
+  min-height: 460px;
   background-color: #E5E7EB;
 }
 
@@ -1805,6 +1960,7 @@ body.in-dark-section .hamburger-btn {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: stretch;
 }
 
 .contact-form-card {
@@ -1813,12 +1969,18 @@ body.in-dark-section .hamburger-btn {
   border-radius: var(--radius-xl);
   padding: clamp(1.75rem, 3vw, 2.5rem);
   box-shadow: var(--shadow-card);
+  height: 100%;
 }
 
 .contact-quick-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-4);
+  align-items: stretch;
+}
+
+.contact-quick-cards > .media-card {
+  grid-column: span 2;
 }
 
 .quick-contact-card {
@@ -1830,7 +1992,14 @@ body.in-dark-section .hamburger-btn {
   flex-direction: column;
   justify-content: space-between;
   gap: var(--space-4);
+  height: 100%;
   transition: all var(--transition-normal);
+}
+
+.quick-contact-card > div:first-child {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
 }
 
 .quick-contact-card:hover {
