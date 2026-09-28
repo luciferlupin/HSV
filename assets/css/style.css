@@ -643,6 +643,15 @@ p.lead, .lead, .subpage-hero-lead {
   color: #FFFFFF;
 }
 
+.dark-cta-banner {
+  margin-top: 4.5rem;
+  text-align: center;
+  background: radial-gradient(circle at 50% 50%, rgba(21, 128, 61, 0.25) 0%, transparent 80%);
+  padding: clamp(3rem, 5vw, 5rem) 1.5rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--dark-border-subtle);
+}
+
 /* ==========================================================================
    4 & 5. HEADING SCROLL WORD ILLUMINATION & BODY MOTION
    ========================================================================== */
@@ -2287,296 +2296,418 @@ body.in-dark-section .hamburger-btn {
 /* Smartphone Primary Breakpoint (<= 768px) */
 @media (max-width: 768px) {
   .section {
-    padding-top: clamp(2.5rem, 5.5vw, 3.5rem);
-    padding-bottom: clamp(2.5rem, 5.5vw, 3.5rem);
+    padding-top: clamp(1.65rem, 4.2vw, 2.25rem);
+    padding-bottom: clamp(1.65rem, 4.2vw, 2.25rem);
   }
 
   .section-header {
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.15rem;
   }
 
   .section-header h2 {
-    font-size: clamp(1.75rem, 6vw, 2.25rem);
+    font-size: clamp(1.6rem, 5.5vw, 2.15rem);
     line-height: 1.15;
+    margin-bottom: 0.35rem;
   }
 
   .section-header .lead {
-    font-size: 0.95rem;
-    line-height: 1.55;
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  .eyebrow {
+    margin-bottom: 0.35rem;
+    font-size: 0.68rem;
+    padding: 0.2rem 0.6rem;
   }
 
   .container {
-    padding-left: 1.15rem;
-    padding-right: 1.15rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   /* Subpage Hero */
   .subpage-hero {
-    padding-top: calc(var(--header-height) + 1.25rem);
-    padding-bottom: 2rem;
+    padding-top: calc(var(--header-height) + 1rem);
+    padding-bottom: 1.5rem;
   }
 
   .subpage-hero h1 {
-    font-size: clamp(1.85rem, 6.5vw, 2.45rem);
+    font-size: clamp(1.75rem, 6vw, 2.25rem);
     line-height: 1.15;
     letter-spacing: -0.03em;
   }
 
   .subpage-hero .lead {
-    font-size: 0.95rem;
-    line-height: 1.55;
+    font-size: 0.88rem;
+    line-height: 1.45;
   }
 
   /* Hero Mobile Refinement */
   .hero-section {
-    padding-top: calc(var(--header-height) + 1.15rem);
-    padding-bottom: 2.25rem;
+    padding-top: calc(var(--header-height) + 0.85rem);
+    padding-bottom: 1.65rem;
   }
 
   .hero-content {
-    gap: 0.85rem;
+    gap: 0.65rem;
   }
 
   .hero-title {
-    font-size: clamp(2.1rem, 7.8vw, 2.85rem);
+    font-size: clamp(1.95rem, 7.2vw, 2.5rem);
     line-height: 1.1;
     letter-spacing: -0.035em;
   }
 
   .hero-content .lead {
-    font-size: 0.95rem;
-    line-height: 1.55;
+    font-size: 0.88rem;
+    line-height: 1.45;
   }
 
   .hero-ctas {
     flex-direction: column;
     align-items: stretch;
-    gap: 0.65rem;
+    gap: 0.5rem;
     width: 100%;
-    margin-top: 0.35rem;
-    margin-bottom: 0.75rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
   }
 
   .hero-ctas .btn {
     width: 100%;
     justify-content: center;
-    min-height: 48px;
-    font-size: 0.925rem;
+    min-height: 44px;
+    font-size: 0.875rem;
   }
 
   /* Trust Indicators 2x2 on Mobile */
   .trust-chips-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
+    gap: 0.4rem;
     width: 100%;
-    padding: 0.75rem 0.85rem;
+    padding: 0.55rem 0.75rem;
     background-color: var(--bg-surface-soft);
     border-radius: var(--radius-md);
     border: 1px solid rgba(21, 128, 61, 0.12);
   }
 
   .trust-chip {
-    font-size: 0.785rem;
+    font-size: 0.75rem;
     padding: 0;
     white-space: normal;
-    line-height: 1.35;
+    line-height: 1.3;
     display: flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.3rem;
   }
 
   /* Hero Valuation Quote Card on Mobile */
   .quote-card {
-    padding: 1.35rem 1.15rem;
-    border-radius: var(--radius-xl);
+    padding: 1.15rem 1rem;
+    border-radius: var(--radius-lg);
   }
 
   .quote-card-header {
-    margin-bottom: 1.15rem;
+    margin-bottom: 0.85rem;
   }
 
   .quote-card-title {
-    font-size: 1.35rem;
+    font-size: 1.2rem;
   }
 
   .quote-card-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .quote-card .form-group {
+    margin-bottom: 0.6rem;
+  }
+
+  .quote-card .form-control {
+    min-height: 40px;
     font-size: 0.85rem;
+    padding: 0.55rem 0.85rem;
+  }
+
+  .quote-card .form-label {
+    font-size: 0.76rem;
+    margin-bottom: 0.25rem;
   }
 
   /* Section 03: Trust Bento Grid 2x2 on Mobile */
   .bento-grid-4 {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+    gap: 0.55rem;
   }
 
   .bento-card {
-    padding: 1.25rem 1rem;
-    border-radius: var(--radius-lg);
+    padding: 0.85rem 0.75rem;
+    border-radius: var(--radius-md);
   }
 
   .bento-card-num {
-    font-size: 0.75rem;
-    margin-bottom: 0.35rem;
+    font-size: 0.7rem;
+    margin-bottom: 0.25rem;
   }
 
   .bento-card-icon {
-    width: 36px;
-    height: 36px;
-    margin-bottom: 0.65rem;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0.45rem;
   }
 
   .bento-card-icon svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
   }
 
   .bento-card h3 {
-    font-size: 0.975rem;
-    line-height: 1.25;
-    margin-bottom: 0.3rem;
+    font-size: 0.88rem;
+    line-height: 1.22;
+    margin-bottom: 0.2rem;
   }
 
   .bento-card p {
-    font-size: 0.8rem;
-    line-height: 1.45;
+    font-size: 0.75rem;
+    line-height: 1.35;
   }
 
   /* Section 04: Sticky Storytelling on Mobile */
   .sticky-storyteller-grid {
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   .sticky-preview-card {
-    height: 200px;
-    border-radius: var(--radius-lg);
+    height: 145px;
+    border-radius: var(--radius-md);
+    margin-bottom: 0.75rem;
   }
 
   .timeline-progress-track {
-    padding-left: 2rem;
-    gap: 1.25rem;
+    padding-left: 1.75rem;
+    gap: 0.75rem;
   }
 
   .timeline-progress-track::before,
   .timeline-fill-bar {
-    left: 11px;
-    top: 18px;
+    left: 9px;
+    top: 14px;
   }
 
   .timeline-node-badge {
-    width: 24px;
-    height: 24px;
-    font-size: 0.7rem;
-    left: -2rem;
-    top: 16px;
+    width: 20px;
+    height: 20px;
+    font-size: 0.65rem;
+    left: -1.75rem;
+    top: 14px;
   }
 
   .timeline-step-item {
-    padding: 1.15rem 1rem;
+    padding: 0.85rem 0.95rem;
     border-radius: var(--radius-md);
   }
 
   .timeline-step-item h3 {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
   }
 
   .timeline-step-item p {
-    font-size: 0.85rem;
-  }
-
-  /* Section 05: Vehicle Categories on Mobile */
-  .vehicle-types-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .vehicle-card {
-    padding: 1.35rem 1.15rem;
-    border-radius: var(--radius-xl);
-  }
-
-  .vehicle-3d-visual {
-    height: 140px;
-    padding: var(--space-2);
-    margin-bottom: 0.85rem;
-  }
-
-  .vehicle-3d-visual img {
-    max-height: 115px;
-  }
-
-  .vehicle-card-title {
-    font-size: 1.25rem;
-    min-height: auto;
-    margin-bottom: 0.35rem;
-  }
-
-  .vehicle-card-desc {
-    font-size: 0.875rem;
-    line-height: 1.5;
-    margin-bottom: 0.75rem;
-  }
-
-  .vehicle-card-specs {
     font-size: 0.8rem;
-    padding: 0.5rem 0.75rem;
-    margin-bottom: 0.75rem;
+    line-height: 1.4;
   }
 
-  .vehicle-card-footer {
-    padding-top: 0.75rem;
-    flex-direction: column;
-    align-items: stretch;
+  /* Section 05: Vehicle Categories on Mobile (2-Column Sleek Catalog) */
+  .vehicle-types-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.65rem;
   }
 
-  .vehicle-spec-pill {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-    font-size: 0.775rem;
+  .vehicle-card {
+    padding: 0.85rem 0.75rem;
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
-  .vehicle-card-footer .btn {
-    width: 100%;
-    justify-content: center;
-    min-height: 44px;
+  .vehicle-3d-visual {
+    height: 75px;
+    padding: 0.25rem;
+    margin-bottom: 0.35rem;
+    border-radius: var(--radius-md);
+  }
+
+  .vehicle-3d-visual img {
+    max-height: 60px;
+  }
+
+  .vehicle-card h3 {
+    font-size: 0.88rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.2rem !important;
+    min-height: 2.3em;
+  }
+
+  .vehicle-card p {
+    font-size: 0.74rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 0.5rem !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .vehicle-card > div:last-child {
+    padding-top: 0.5rem !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.35rem !important;
+  }
+
+  .vehicle-spec-pill {
+    display: none !important;
+  }
+
+  .vehicle-card .btn {
+    width: 100% !important;
+    min-height: 32px !important;
+    padding: 0.3rem 0.5rem !important;
+    font-size: 0.725rem !important;
+    justify-content: center !important;
   }
 
   /* Section 06: Paperwork Checklist on Mobile */
   .paperwork-left,
   .paperwork-right {
-    padding: 1.5rem 1.15rem;
+    padding: 1.15rem 0.95rem;
   }
 
   .rc-explainer-card {
-    padding: 1.25rem 1rem;
-    border-radius: var(--radius-lg);
+    padding: 0.95rem 0.85rem;
+    border-radius: var(--radius-md);
   }
 
   .checklist-list {
-    gap: 0.65rem;
+    gap: 0.45rem;
   }
 
   .checklist-item {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
+    padding: 0.55rem 0.75rem;
   }
 
-  /* Section 07: Dark Section on Mobile */
+  /* Section 07: Dark Bento Section on Mobile (2x2 Grid) */
   .why-bento-grid {
-    grid-template-columns: 1fr;
-    gap: 0.85rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
   }
 
   .why-card-main {
-    grid-column: span 1;
-    padding: 1.5rem 1.15rem;
-    border-radius: var(--radius-xl);
+    grid-column: span 2;
+    padding: 1.15rem 1rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .why-card-main h3 {
+    font-size: 1.45rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .why-card-main p {
+    font-size: 0.825rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 0.65rem !important;
+  }
+
+  .why-card-main .bento-image-wrapper {
+    height: 125px !important;
+    margin: 0.65rem 0 !important;
+  }
+
+  .why-card-main div[style*="background: rgba(255, 255, 255, 0.04)"] {
+    padding: 0.75rem 0.85rem !important;
+    margin-top: 0.65rem !important;
   }
 
   .why-card-sub {
-    padding: 1.25rem 1rem;
-    border-radius: var(--radius-lg);
+    grid-column: span 1;
+    padding: 0.85rem 0.75rem;
+    border-radius: var(--radius-md);
+    height: 100%;
+  }
+
+  .why-card-sub .sub-card-top {
+    margin-bottom: 0.35rem;
+  }
+
+  .why-card-sub .sub-card-top .bento-card-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .why-card-sub .sub-card-top .bento-card-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .why-card-sub .sub-card-badge {
+    font-size: 0.55rem;
+    padding: 0.15rem 0.4rem;
+  }
+
+  .why-card-sub h4 {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .why-card-sub p {
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .why-card-sub .sub-card-features {
+    margin: 0.45rem 0 0.55rem 0;
+    padding-top: 0.45rem;
+    gap: 0.3rem;
+  }
+
+  .why-card-sub .sub-feature-item {
+    font-size: 0.68rem;
+    line-height: 1.25;
+    gap: 0.35rem;
+  }
+
+  .why-card-sub .sub-feature-item svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .why-card-sub .card-inline-link {
+    font-size: 0.725rem;
+  }
+
+  .dark-cta-banner {
+    margin-top: 1.5rem !important;
+    padding: 1.5rem 1rem !important;
+    border-radius: var(--radius-lg) !important;
+  }
+
+  .dark-cta-banner h2 {
+    font-size: 1.45rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .dark-cta-banner p {
+    font-size: 0.825rem !important;
+    margin-bottom: 1rem !important;
   }
 
   /* Section 08, 09, 11 (Business, Location, Contact) on Mobile */
@@ -2584,71 +2715,183 @@ body.in-dark-section .hamburger-btn {
   .service-area-grid,
   .contact-bento-grid {
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 0.85rem;
   }
 
   .location-info-card,
   .contact-form-card,
   .business-card {
-    padding: 1.35rem 1.15rem;
-    border-radius: var(--radius-xl);
+    padding: 1.15rem 1rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .business-card h3 {
+    font-size: 1.15rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .business-card p {
+    font-size: 0.825rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .business-card .bento-image-wrapper {
+    height: 130px !important;
+    margin: 0.65rem 0 !important;
   }
 
   .map-container {
-    height: 270px;
-    min-height: 270px;
-    border-radius: var(--radius-xl);
+    height: 190px !important;
+    min-height: 190px !important;
+    border-radius: var(--radius-lg);
   }
 
   /* Contact Quick Channels: 2x2 on Mobile */
   .contact-quick-cards {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.65rem;
+    gap: 0.55rem;
   }
 
   .contact-quick-cards > .media-card {
     grid-column: span 2;
-    height: 140px !important;
+    height: 110px !important;
   }
 
   .quick-contact-card {
-    padding: 1rem 0.85rem;
+    padding: 0.85rem 0.75rem;
     border-radius: var(--radius-md);
   }
 
   .quick-contact-card .btn {
-    min-height: 38px;
-    font-size: 0.775rem;
+    min-height: 34px;
+    font-size: 0.725rem;
   }
 
   /* FAQ Accordion on Mobile */
+  .faq-item {
+    margin-bottom: 0.45rem;
+  }
+
   .faq-question-btn {
-    padding: 1rem 1.15rem;
-    font-size: 0.975rem;
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
   }
 
   .faq-answer-panel {
-    padding: 0 1.15rem 1rem;
-    font-size: 0.9rem;
-    line-height: 1.6;
+    padding: 0 1rem 0.85rem;
+    font-size: 0.825rem;
+    line-height: 1.5;
   }
 
-  /* Footer on Mobile */
+  /* Section 12 Editorial CTA */
+  section[style*="border-top: 1px solid var(--border-subtle)"] {
+    padding-top: 1.75rem !important;
+    padding-bottom: 1.75rem !important;
+  }
+
+  section[style*="border-top: 1px solid var(--border-subtle)"] h2 {
+    font-size: 1.65rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  section[style*="border-top: 1px solid var(--border-subtle)"] p.lead {
+    font-size: 0.88rem !important;
+    margin-bottom: 1.15rem !important;
+  }
+
+  /* Compact 2-Column Mobile Footer */
   .site-footer {
-    padding-top: 2.75rem;
-    padding-bottom: 2rem;
+    padding-top: 1.75rem;
+    padding-bottom: 5.5rem;
   }
 
   .footer-top-grid {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-top-grid > div:first-child {
+    grid-column: span 2;
+    gap: 0.4rem !important;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .footer-top-grid > div:first-child .brand-logo-img {
+    height: 36px;
+    width: auto;
+  }
+
+  .footer-top-grid > div:first-child div:nth-child(2) {
+    font-size: 0.95rem !important;
+  }
+
+  .footer-top-grid > div:first-child div:nth-child(3) {
+    font-size: 0.725rem !important;
+  }
+
+  .footer-top-grid > div:first-child p {
+    font-size: 0.785rem !important;
+    line-height: 1.4 !important;
+    max-width: 100% !important;
+    margin-bottom: 0;
+  }
+
+  .footer-top-grid > div:nth-child(2) {
+    grid-column: span 1;
+  }
+
+  .footer-top-grid > div:nth-child(2) h4,
+  .footer-top-grid > div:nth-child(3) h4,
+  .footer-top-grid > div:nth-child(4) h4 {
+    font-size: 0.75rem !important;
+    margin-bottom: 0.5rem !important;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-top-grid > div:nth-child(2) ul {
+    gap: 0.35rem !important;
+  }
+
+  .footer-top-grid > div:nth-child(2) ul li a {
+    font-size: 0.785rem !important;
+    line-height: 1.3;
+  }
+
+  .footer-top-grid > div:nth-child(3) {
+    grid-column: span 1;
+  }
+
+  .footer-top-grid > div:nth-child(3) ul {
+    gap: 0.35rem !important;
+    font-size: 0.785rem !important;
+  }
+
+  .footer-top-grid > div:nth-child(3) ul li:last-child {
+    margin-top: 0.25rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .footer-top-grid > div:nth-child(4) {
+    grid-column: span 2;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .footer-top-grid > div:nth-child(4) p {
+    font-size: 0.75rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.35rem !important;
   }
 
   .footer-bottom-bar {
+    padding-top: 0.85rem;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.75rem;
+    gap: 0.4rem;
+    font-size: 0.725rem;
   }
 
   /* Media Card Overlay on Mobile */
