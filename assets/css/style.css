@@ -1929,3 +1929,122 @@ p.lead {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* ==========================================================================
+   HIGH QUALITY MEDIA CONTAINERS & 3D ICONOGRAPHY
+   ========================================================================== */
+.media-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  background-color: #FAFBFA;
+}
+
+.media-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.media-card:hover img {
+  transform: scale(1.02);
+}
+
+.media-badge-overlay {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: rgba(22, 27, 24, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #FFFFFF;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hero-editorial-visual {
+  margin-top: 1.5rem;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  height: 230px;
+}
+
+.hero-editorial-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vehicle-3d-visual {
+  width: 100%;
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #FFFFFF 0%, var(--color-surface-soft) 100%);
+  border-radius: var(--radius-lg);
+  margin-bottom: 1.15rem;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  padding: 0.5rem;
+}
+
+.vehicle-3d-visual img {
+  max-height: 155px;
+  width: 100%;
+  object-fit: contain;
+  transition: transform var(--transition-normal);
+}
+
+.vehicle-card:hover .vehicle-3d-visual img {
+  transform: scale(1.05) translateY(-2px);
+}
+
+.step-photo-thumb {
+  width: 100%;
+  height: 120px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-top: 1rem;
+  border: 1px solid var(--color-border);
+}
+
+.step-photo-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-fast);
+}
+
+.step-card:hover .step-photo-thumb img {
+  transform: scale(1.03);
+}
+
+.paperwork-photo-wrap {
+  width: 100%;
+  height: 220px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 1.25rem;
+  border: 1px solid rgba(21, 128, 61, 0.2);
+}
+
+.paperwork-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
