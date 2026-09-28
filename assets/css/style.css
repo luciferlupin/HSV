@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 /* ==========================================================================
    HSV AUTO RECYCLING — PREMIUM APPLE-INSPIRED DESIGN SYSTEM
    Bhiwani, Haryana, India
    Swiss Typography • Bento Grid Architecture • Controlled Cinematic Motion
+   Strict Font Family: Apple San Francisco (-apple-system / SF Pro) & DM Sans
    ========================================================================== */
 
 :root {
@@ -15,6 +18,16 @@
   --color-forest-dark: #072F24;
   --color-lime: #4ADE80;
   
+  /* Legacy Color Compatibility for Subpages */
+  --color-forest-green: var(--color-forest);
+  --color-text-main: var(--text-primary);
+  --color-text-muted: var(--text-secondary);
+  --color-text-subtle: var(--text-tertiary);
+  --color-surface-soft: var(--bg-surface-soft);
+  --color-border: var(--border-subtle);
+  --color-dark-bg: var(--dark-bg-page);
+  --color-dark-surface: var(--dark-bg-surface);
+
   /* Neutral Palette (Light Mode Default) */
   --bg-page: #FAFBFA;
   --bg-surface: #FFFFFF;
@@ -54,9 +67,11 @@
   --space-24: 96px;
   --space-32: 128px;
 
-  /* Typography Scale & Metrics */
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  /* Typography Scale & Metrics — Strictly Apple San Francisco & DM Sans */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", "DM Sans", -apple-system-headline, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro", "DM Sans", -apple-system-headline, sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "DM Sans", sans-serif;
+  --font-mono: -apple-system, BlinkMacSystemFont, "SF Pro Display", "DM Sans", monospace;
 
   /* Fluid Display Sizes */
   --text-hero: clamp(2.6rem, 5.5vw, 4.75rem);
@@ -106,6 +121,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   background-color: var(--bg-page);
   color: var(--text-primary);
 }
@@ -113,7 +129,8 @@ html {
 body {
   font-family: var(--font-sans);
   font-size: var(--text-body);
-  line-height: 1.6;
+  font-weight: 350;
+  line-height: 1.62;
   background-color: var(--bg-page);
   color: var(--text-primary);
   overflow-x: hidden;
@@ -153,22 +170,23 @@ button {
 }
 
 /* ==========================================================================
-   2. VISUAL HIERARCHY & TYPOGRAPHY
+   2. VISUAL HIERARCHY & TYPOGRAPHY (APPLE-INSPIRED THIN REFINEMENT)
    ========================================================================== */
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  font-family: var(--font-display);
   font-size: var(--text-caption);
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-primary);
   background-color: var(--bg-surface-soft);
   padding: 0.35rem 0.85rem;
   border-radius: var(--radius-pill);
   border: 1px solid rgba(21, 128, 61, 0.15);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
   width: fit-content;
 }
 
@@ -187,38 +205,69 @@ button {
   100% { transform: scale(0.9); opacity: 0.8; }
 }
 
-h1, h2, h3, h4 {
-  font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.035em;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
   color: var(--text-primary);
+  margin-top: 0;
+  text-wrap: balance;
 }
 
 h1 {
   font-size: var(--text-hero);
+  font-weight: 350;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+h1 strong, h1 b {
+  font-weight: 550;
 }
 
 h2 {
   font-size: var(--text-h2);
+  font-weight: 400;
   line-height: 1.12;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.032em;
+}
+
+h2 strong, h2 b {
+  font-weight: 550;
 }
 
 h3 {
   font-size: var(--text-h3);
-  line-height: 1.2;
-  letter-spacing: -0.025em;
+  font-weight: 480;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+}
+
+h3 strong, h3 b {
+  font-weight: 550;
+}
+
+h4 {
+  font-size: 1.15rem;
+  font-weight: 480;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
 }
 
 p {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 350;
   color: var(--text-secondary);
-  line-height: 1.62;
+  line-height: 1.64;
+  letter-spacing: -0.008em;
 }
 
-p.lead {
+p.lead, .lead, .subpage-hero-lead {
   font-size: var(--text-lead);
-  line-height: 1.6;
-  max-width: 620px;
+  font-weight: 300;
+  line-height: 1.55;
+  letter-spacing: -0.012em;
+  color: var(--text-secondary);
+  max-width: 640px;
 }
 
 .max-w-prose {
@@ -230,6 +279,142 @@ p.lead {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+  font-weight: inherit;
+}
+
+/* Subpage Hero Section (Apple Editorial Layout) */
+.subpage-hero {
+  padding-top: calc(var(--header-height) + clamp(2.5rem, 5vw, 4.5rem));
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  background: radial-gradient(circle at 50% 0%, rgba(21, 128, 61, 0.06) 0%, transparent 60%), var(--bg-page);
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.subpage-hero-content {
+  max-width: 860px;
+}
+
+.subpage-hero h1 {
+  font-size: clamp(2.3rem, 4.8vw, 3.8rem);
+  font-weight: 350;
+  letter-spacing: -0.038em;
+  line-height: 1.08;
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-4);
+  color: var(--text-primary);
+}
+
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.825rem;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-4);
+}
+
+.breadcrumb-nav a {
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.breadcrumb-nav a:hover {
+  color: var(--color-primary);
+}
+
+.breadcrumb-nav span {
+  color: var(--text-tertiary);
+}
+
+/* Pill / Tag Component */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background-color: var(--bg-surface-soft);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(21, 128, 61, 0.15);
+  width: fit-content;
+}
+
+.pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  display: inline-block;
+}
+
+/* Step Badge */
+.step-badge {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  background-color: var(--bg-surface-soft);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(21, 128, 61, 0.15);
+}
+
+/* Eligibility note & vehicle card elements */
+.eligibility-note {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+
+.vehicle-card-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-surface-soft);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+  transition: all var(--transition-fast);
+}
+
+.vehicle-card:hover .vehicle-card-icon-wrap {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.vehicle-card-title {
+  font-size: 1.35rem;
+  font-weight: 450;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2);
+}
+
+.vehicle-card-desc {
+  font-size: 0.95rem;
+  font-weight: 350;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-3);
+}
+
+.vehicle-card-footer {
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
 }
 
 /* ==========================================================================
@@ -433,16 +618,18 @@ p.lead {
 }
 
 .brand-name {
+  font-family: var(--font-display);
   font-size: 1rem;
-  font-weight: 800;
+  font-weight: 500;
   letter-spacing: -0.025em;
   color: var(--text-primary);
   line-height: 1.1;
 }
 
 .brand-tagline {
+  font-family: var(--font-display);
   font-size: 0.7rem;
-  font-weight: 700;
+  font-weight: 400;
   color: var(--color-primary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -456,8 +643,9 @@ p.lead {
 }
 
 .nav-link {
+  font-family: var(--font-display);
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--text-secondary);
   padding: var(--space-2) var(--space-1);
   position: relative;
@@ -466,6 +654,7 @@ p.lead {
 
 .nav-link:hover, .nav-link.active {
   color: var(--color-primary);
+  font-weight: 480;
 }
 
 .nav-link.active::after {
@@ -496,8 +685,9 @@ p.lead {
   min-height: 48px;
   padding: 0.65rem 1.45rem;
   border-radius: var(--radius-md);
+  font-family: var(--font-display);
   font-size: 0.925rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: -0.01em;
   transition: all var(--transition-fast);
   text-align: center;
@@ -629,8 +819,9 @@ p.lead {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
+  font-family: var(--font-display);
   font-size: var(--text-small);
-  font-weight: 700;
+  font-weight: 500;
   color: var(--text-primary);
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-sm);
@@ -654,8 +845,9 @@ p.lead {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+  font-family: var(--font-display);
   font-size: var(--text-caption);
-  font-weight: 700;
+  font-weight: 450;
   color: var(--text-primary);
   background-color: var(--bg-surface);
   padding: 0.35rem 0.75rem;
@@ -667,7 +859,7 @@ p.lead {
 .trust-chip-check {
   color: var(--color-primary);
   font-size: 0.95rem;
-  font-weight: 900;
+  font-weight: 500;
 }
 
 /* ==========================================================================
@@ -698,13 +890,16 @@ p.lead {
 }
 
 .quote-card-title {
+  font-family: var(--font-display);
   font-size: 1.45rem;
-  font-weight: 800;
+  font-weight: 450;
+  letter-spacing: -0.025em;
   margin-bottom: var(--space-1);
 }
 
 .quote-card-subtitle {
   font-size: var(--text-small);
+  font-weight: 350;
   color: var(--text-secondary);
 }
 
@@ -721,8 +916,10 @@ p.lead {
 }
 
 .form-label {
+  font-family: var(--font-display);
   font-size: var(--text-caption);
-  font-weight: 700;
+  font-weight: 480;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
   display: flex;
   justify-content: space-between;
@@ -732,7 +929,7 @@ p.lead {
 .form-label-hint {
   font-size: 0.72rem;
   color: var(--text-tertiary);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .form-input, .form-select, .form-textarea {
@@ -773,9 +970,9 @@ p.lead {
 
 .uppercase-input {
   text-transform: uppercase;
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   letter-spacing: 0.05em;
-  font-weight: 700;
+  font-weight: 450;
 }
 
 /* Choice Chips */
@@ -788,8 +985,9 @@ p.lead {
 .choice-chip {
   padding: 0.45rem 0.85rem;
   border-radius: var(--radius-pill);
+  font-family: var(--font-display);
   font-size: 0.825rem;
-  font-weight: 700;
+  font-weight: 450;
   border: 1px solid var(--border-subtle);
   background-color: #FAFBFA;
   color: var(--text-secondary);
@@ -940,9 +1138,9 @@ p.lead {
   background-color: var(--bg-surface);
   border: 2px solid var(--border-hover);
   color: var(--text-tertiary);
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 0.75rem;
-  font-weight: 800;
+  font-weight: 400;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -984,9 +1182,10 @@ p.lead {
 }
 
 .bento-card-num {
-  font-family: var(--font-mono);
+  font-family: var(--font-display);
   font-size: 0.85rem;
-  font-weight: 800;
+  font-weight: 400;
+  letter-spacing: -0.02em;
   color: var(--color-primary);
   margin-bottom: var(--space-3);
   display: flex;
@@ -1092,8 +1291,9 @@ p.lead {
   color: #FFFFFF;
   padding: 0.45rem 0.95rem;
   border-radius: var(--radius-pill);
+  font-family: var(--font-display);
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 480;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -1153,7 +1353,7 @@ p.lead {
   gap: var(--space-3);
   font-size: 0.95rem;
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .check-icon {
@@ -1165,7 +1365,7 @@ p.lead {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 900;
+  font-weight: 500;
   font-size: 0.85rem;
   flex-shrink: 0;
   margin-top: 2px;
@@ -1304,8 +1504,10 @@ p.lead {
   justify-content: space-between;
   gap: var(--space-4);
   text-align: left;
+  font-family: var(--font-display);
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 450;
+  letter-spacing: -0.015em;
   color: var(--text-primary);
   background: none;
 }
@@ -1417,7 +1619,8 @@ p.lead {
   padding: 0.75rem 1.25rem;
   border-radius: var(--radius-pill);
   box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 500;
   font-size: 0.925rem;
   transition: all var(--transition-normal);
 }
@@ -1451,8 +1654,9 @@ p.lead {
 .mobile-action-btn {
   min-height: 44px;
   padding: 0.45rem 0.5rem;
+  font-family: var(--font-display);
   font-size: 0.825rem;
-  font-weight: 800;
+  font-weight: 500;
   border-radius: var(--radius-sm);
   display: inline-flex;
   align-items: center;
