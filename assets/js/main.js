@@ -429,33 +429,33 @@
   const translations = {
     hi: {
       location_pill: "● भिवानी, हरियाणा",
-      hero_title_1: "अपनी पुरानी गाड़ी स्क्रैप करें।",
-      hero_title_legal: "कानूनी व सही तरीके से।",
-      hero_lead: "उचित स्क्रैप मूल्य, गाड़ी उठाने में सहायता, तुरंत भुगतान और सरकारी नियमों के अनुसार RC कैंसलेशन सहायता प्राप्त करें।",
-      btn_get_quote: "स्क्रैप कोट प्राप्त करें",
-      btn_whatsapp: "व्हाट्सएप करें",
-      btn_call: "कॉल करें",
-      trust_1: "स्क्रैप वाहन",
-      trust_2: "तुरंत भुगतान",
-      trust_3: "RC कैंसलेशन",
-      trust_4: "पिकअप सहायता",
-      quote_title: "स्क्रैप कोट प्राप्त करें",
-      quote_sub: "गाड़ी की जानकारी दें। HSV टीम आपसे संपर्क करेगी।"
+      hero_title_1: "अधिकृत वाहन स्क्रैपिंग सेवा।",
+      hero_title_legal: "सरकारी नियमों के अनुसार।",
+      hero_lead: "पारदर्शी स्क्रैप मूल्यांकन, निःशुल्क पिकअप, तत्काल बैंक भुगतान एवं परिवहन VAHAN पोर्टल से RC निरस्तीकरण सहायता।",
+      btn_get_quote: "मूल्यांकन कोट प्राप्त करें",
+      btn_whatsapp: "विशेषज्ञ से व्हाट्सएप करें",
+      btn_call: "कॉल करें 9896226697",
+      trust_1: "VAHAN निरस्तीकरण",
+      trust_2: "तत्काल IMPS भुगतान",
+      trust_3: "डोरस्टेप टोइंग फ्लीट",
+      trust_4: "MoRTH अनुपालन",
+      quote_title: "स्क्रैप मूल्यांकन कोटेशन",
+      quote_sub: "वाहन विवरण साझा करें, HSV टीम संपूर्ण कानूनी प्रक्रिया के साथ तुरंत संपर्क करेगी।"
     },
     en: {
       location_pill: "● Bhiwani, Haryana",
-      hero_title_1: "Scrap your old vehicle.",
-      hero_title_legal: "The legal way.",
-      hero_lead: "Get a fair scrap quote, vehicle pickup assistance, instant payment and RC cancellation support — handled according to applicable government norms.",
-      btn_get_quote: "GET MY SCRAP QUOTE",
-      btn_whatsapp: "WHATSAPP US",
+      hero_title_1: "Authorized Vehicle Scrapping.",
+      hero_title_legal: "The Compliant Standard.",
+      hero_lead: "Direct end-of-life vehicle acquisition, auditable scrap valuation, doorstep recovery, and complete Parivahan VAHAN de-registration compliance.",
+      btn_get_quote: "GET VALUATION QUOTE",
+      btn_whatsapp: "WHATSAPP SPECIALIST",
       btn_call: "Call 9896226697",
-      trust_1: "Scrap Vehicles",
-      trust_2: "Instant Payment",
-      trust_3: "RC Cancellation",
-      trust_4: "Pickup Assistance",
-      quote_title: "Get your scrap quote",
-      quote_sub: "Tell us about your vehicle. We'll contact you with the next steps."
+      trust_1: "VAHAN De-Registration",
+      trust_2: "Instant IMPS Settlement",
+      trust_3: "Doorstep Towing Fleet",
+      trust_4: "MoRTH Compliance",
+      quote_title: "Request Vehicle Scrap Valuation",
+      quote_sub: "Submit vehicle details for an auditable scrap value assessment and compliance roadmap."
     }
   };
 
