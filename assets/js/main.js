@@ -7,6 +7,7 @@
   "use strict";
 
   const HSV_PHONE = "9896226697";
+  const HSV_PHONE_ALT = "9999929019";
   const HSV_WHATSAPP_BASE = "https://wa.me/919896226697";
 
   // Check prefers-reduced-motion
@@ -428,13 +429,13 @@
   // 12. Bilingual Toggle Architecture (EN | हिंदी)
   const translations = {
     hi: {
-      location_pill: "● भिवानी, हरियाणा",
+      location_pill: "● भिवानी, हरियाणा एवं दिल्ली",
       hero_title_1: "अधिकृत वाहन स्क्रैपिंग सेवा।",
       hero_title_legal: "सरकारी नियमों के अनुसार।",
-      hero_lead: "पारदर्शी स्क्रैप मूल्यांकन, निःशुल्क पिकअप, तत्काल बैंक भुगतान एवं परिवहन VAHAN पोर्टल से RC निरस्तीकरण सहायता।",
+      hero_lead: "पारदर्शी स्क्रैप मूल्यांकन, निःशुल्क पिकअप, तत्काल बैंक भुगतान एवं परिवहन VAHAN पोर्टल से RC निरस्तीकरण सहायता (भिवानी, हरियाणा एवं दिल्ली)।",
       btn_get_quote: "मूल्यांकन कोट प्राप्त करें",
       btn_whatsapp: "विशेषज्ञ से व्हाट्सएप करें",
-      btn_call: "कॉल करें 9896226697",
+      btn_call: "कॉल करें 9896226697 / 9999929019",
       trust_1: "VAHAN निरस्तीकरण",
       trust_2: "तत्काल IMPS भुगतान",
       trust_3: "डोरस्टेप टोइंग फ्लीट",
@@ -443,13 +444,13 @@
       quote_sub: "वाहन विवरण साझा करें, HSV टीम संपूर्ण कानूनी प्रक्रिया के साथ तुरंत संपर्क करेगी।"
     },
     en: {
-      location_pill: "● Bhiwani, Haryana",
+      location_pill: "● Bhiwani, Haryana & Delhi",
       hero_title_1: "Authorized Vehicle Scrapping.",
       hero_title_legal: "The Compliant Standard.",
-      hero_lead: "Direct end-of-life vehicle acquisition, auditable scrap valuation, doorstep recovery, and complete Parivahan VAHAN de-registration compliance.",
+      hero_lead: "Direct end-of-life vehicle acquisition, auditable scrap valuation, doorstep recovery, and complete Parivahan VAHAN de-registration compliance across Bhiwani, Haryana & Delhi.",
       btn_get_quote: "GET VALUATION QUOTE",
       btn_whatsapp: "WHATSAPP SPECIALIST",
-      btn_call: "Call 9896226697",
+      btn_call: "Call 9896226697 / 9999929019",
       trust_1: "VAHAN De-Registration",
       trust_2: "Instant IMPS Settlement",
       trust_3: "Doorstep Towing Fleet",

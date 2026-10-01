@@ -1,6 +1,6 @@
 # HSV - HSV Auto Recycling
 
-> **HSV Auto Recycling** — Official website for vehicle scrapping, pickup assistance, instant payment, and RC cancellation guidance in Bhiwani, Haryana, India.
+> **HSV Auto Recycling** — Official website for vehicle scrapping, pickup assistance, instant payment, and RC cancellation guidance across Bhiwani, Haryana & Delhi, India.
 
 ## Company Details
 - **Company**: HSV AUTO RECYCLING
@@ -13,7 +13,7 @@
 ## Core Promises
 - **Instant Payment**: Direct and prompt payment agreed upon prior to vehicle collection.
 - **RC Cancellation Guidance**: Step-by-step paperwork guidance under applicable government norms.
-- **Vehicle Pickup Assistance**: Logistics coordination across Bhiwani and surrounding Haryana areas.
+- **Vehicle Pickup Assistance**: Logistics coordination across Delhi, Bhiwani, and Haryana.
 
 ## Design & Architecture
 - **Aesthetic**: Apple-like minimalism + Swiss typography + Modern Automotive Bento Grid UI.
