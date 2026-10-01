@@ -2,7 +2,7 @@
 
 /* ==========================================================================
    HSV AUTO RECYCLING — PREMIUM APPLE-INSPIRED DESIGN SYSTEM
-   Bhiwani, Haryana, India
+   Bhiwani, Haryana & Delhi, India
    Swiss Typography • Bento Grid Architecture • Controlled Cinematic Motion
    Strict Font Family: Apple San Francisco (-apple-system / SF Pro) & DM Sans
    ========================================================================== */
@@ -277,6 +277,7 @@ p.lead, .lead, .subpage-hero-lead {
 .text-gradient-green {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
   font-weight: inherit;
@@ -2556,6 +2557,7 @@ body.in-dark-section .hamburger-btn {
     margin-bottom: 0.5rem !important;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -2669,6 +2671,7 @@ body.in-dark-section .hamburger-btn {
     line-height: 1.35 !important;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }

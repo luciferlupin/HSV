@@ -1133,12 +1133,13 @@
   // 15. DEDICATED SERVICE AREA PINCODE & DISTRICT LOOKUP
   // ==========================================================================
   const SERVICE_COVERAGE_ZONES = [
-    { name: "Bhiwani & Suburbs", pincodes: ["127021", "127022", "127027", "127031", "127032", "127035"], speed: "Immediate Daily Dispatch", note: "Primary yard location in New Vidya Nagar. Same-day hydraulic flatbed recovery." },
+    { name: "Bhiwani & Suburbs", pincodes: ["127021", "127022", "127027", "127031", "127032", "127035"], speed: "Immediate Daily Dispatch", note: "Primary yard location in New Vidya Nagar. Same-day hydraulic flatbed recovery across Bhiwani." },
+    { name: "Delhi & NCR Region", pincodes: ["110001", "110002", "110003", "110005", "110006", "110007", "110008", "110009", "110010", "110011", "110012", "110015", "110016", "110017", "110018", "110019", "110020", "110024", "110025", "110028", "110030", "110034", "110045", "110058", "110075", "110085", "110092", "110096"], speed: "Dedicated Flatbed Dispatch", note: "Daily flatbed vehicle recovery across all Delhi districts for 10-year diesel & 15-year petrol vehicles." },
     { name: "Charkhi Dadri Belt", pincodes: ["127306", "127307", "127308", "127310", "127026"], speed: "Scheduled Daily Route", note: "Dedicated transit corridor with same-day or next-day flatbed towing." },
     { name: "Hansi & Hisar Corridor", pincodes: ["125001", "125004", "125005", "125033", "125042"], speed: "Daily Regional Transit", note: "Direct highway collection with on-site evaluation and IMPS payment." },
     { name: "Rohtak & Maham Belt", pincodes: ["124001", "124021", "124112", "124111"], speed: "Regular Route Coverage", note: "Regular highway dispatch for passenger & commercial vehicles." },
     { name: "Tosham, Bawani Khera & Loharu", pincodes: ["127040", "127032", "127201", "127028"], speed: "District Rapid Pickup", note: "Agricultural, commercial, and domestic end-of-life recovery." },
-    { name: "Delhi NCR & Gurugram", pincodes: ["110001", "110002", "110012", "110015", "110020", "110025", "110030", "110045", "110075", "110085", "122001", "122002", "122018", "121001"], speed: "Dedicated Flatbed Dispatch", note: "Specialized collection for 10-year diesel & 15-year petrol vehicles." }
+    { name: "Gurugram, Faridabad & Haryana NCR", pincodes: ["122001", "122002", "122018", "121001", "121002", "131001", "132103"], speed: "Dedicated Flatbed Dispatch", note: "Rapid flatbed collection across Haryana NCR and industrial corridors." }
   ];
 
   function initLocationSearch() {
