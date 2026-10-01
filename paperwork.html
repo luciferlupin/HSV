@@ -58,6 +58,16 @@
 
       <!-- Nav Actions (Minimalist Pill Controls) -->
       <div class="nav-actions">
+        <!-- Quick Search Button -->
+        <button type="button" class="header-search-btn" id="open-search-btn" aria-label="Search HSV Auto Recycling" title="Quick Search (Cmd+K)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="search-btn-label">Search...</span>
+          <kbd class="search-btn-kbd"><abbr title="Command">⌘</abbr>K</kbd>
+        </button>
+
         <div class="lang-switch-pill" role="group" aria-label="Language Selector">
           <button type="button" class="lang-btn active" data-lang="en">EN</button>
           <span class="lang-divider">/</span>
@@ -81,6 +91,15 @@
 
   <!-- Mobile Navigation Sheet -->
   <div class="mobile-nav-sheet" aria-label="Mobile Navigation">
+    <div style="padding: 0 1.25rem 1rem;">
+      <button type="button" class="btn btn-secondary btn-block header-search-btn" style="width: 100%; justify-content: center; height: 42px;" data-action="open-search">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>Search paperwork &amp; RC guide...</span>
+      </button>
+    </div>
     <ul class="mobile-nav-links">
       <li><a href="index.html" class="mobile-nav-link"><span>Home</span> <span>→</span></a></li>
       <li><a href="services.html" class="mobile-nav-link"><span>Services</span> <span>→</span></a></li>

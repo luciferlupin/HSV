@@ -58,6 +58,16 @@
 
       <!-- Nav Actions (Minimalist Pill Controls) -->
       <div class="nav-actions">
+        <!-- Quick Search Button -->
+        <button type="button" class="header-search-btn" id="open-search-btn" aria-label="Search HSV Auto Recycling" title="Quick Search (Cmd+K)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="search-btn-label">Search...</span>
+          <kbd class="search-btn-kbd"><abbr title="Command">⌘</abbr>K</kbd>
+        </button>
+
         <div class="lang-switch-pill" role="group" aria-label="Language Selector">
           <button type="button" class="lang-btn active" data-lang="en">EN</button>
           <span class="lang-divider">/</span>
@@ -81,6 +91,15 @@
 
   <!-- Mobile Navigation Sheet -->
   <div class="mobile-nav-sheet" aria-label="Mobile Navigation">
+    <div style="padding: 0 1.25rem 1rem;">
+      <button type="button" class="btn btn-secondary btn-block header-search-btn" style="width: 100%; justify-content: center; height: 42px;" data-action="open-search">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span>Search site &amp; coverage...</span>
+      </button>
+    </div>
     <ul class="mobile-nav-links">
       <li><a href="index.html" class="mobile-nav-link"><span>Home</span> <span>→</span></a></li>
       <li><a href="services.html" class="mobile-nav-link"><span>Services</span> <span>→</span></a></li>
@@ -183,42 +202,73 @@
 
         </div>
 
+        <!-- Interactive Pincode & City Checker -->
+        <div style="margin-top: 3.5rem;">
+          <div class="location-checker-card">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+              <div class="pill">● INSTANT COVERAGE VERIFIER</div>
+            </div>
+            <h2 style="font-size: 1.45rem; margin-bottom: 0.35rem;">Check Vehicle Pickup In Your Area</h2>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 0;">
+              Enter your 6-digit Pincode (e.g., <strong>127021</strong>, <strong>127306</strong>, <strong>110001</strong>) or City/District to verify immediate flatbed towing availability.
+            </p>
+
+            <div class="location-checker-form">
+              <div class="location-checker-input-wrapper">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <input 
+                  type="text" 
+                  id="location-checker-input" 
+                  class="location-checker-input" 
+                  placeholder="Enter Pincode (e.g. 127021, 125001) or Area Name (e.g. Bhiwani, Delhi, Hisar)..."
+                  aria-label="Pincode and city checker input"
+                />
+              </div>
+            </div>
+
+            <div id="location-coverage-status" class="location-coverage-status" aria-live="polite"></div>
+          </div>
+        </div>
+
         <!-- Regional Coverage Clarification -->
-        <div style="margin-top: 4rem;">
+        <div>
           <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Primary Haryana Service Corridors</h2>
           <p style="color: var(--color-text-muted); max-width: 760px; margin-bottom: 1.5rem;">
             From our primary Bhiwani dismantling and yard facility, our fleet regularly executes scheduled collections across the following regional routes:
           </p>
 
           <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem;">
-            <div class="bento-card" style="padding: 1.25rem;">
+            <div class="bento-card" data-area="bhiwani 127021 vidya nagar" style="padding: 1.25rem;">
               <strong style="color: var(--color-forest-green);">Bhiwani &amp; Suburbs</strong>
-              <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">Immediate daily dispatch</div>
+              <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">Immediate daily dispatch (127021)</div>
             </div>
 
-            <div class="bento-card" style="padding: 1.25rem;">
+            <div class="bento-card" data-area="charkhi dadri 127306 belt" style="padding: 1.25rem;">
               <strong style="color: var(--color-forest-green);">Charkhi Dadri Belt</strong>
-              <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">Scheduled flatbed routing</div>
+              <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">Scheduled flatbed routing (127306)</div>
             </div>
 
-            <div class="bento-card" style="padding: 1.25rem;">
+            <div class="bento-card" data-area="hansi hisar 125001 125033 corridor" style="padding: 1.25rem;">
               <strong style="color: var(--color-forest-green);">Hansi &amp; Hisar Corridor</strong>
-              <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">Regular transit pickup</div>
+              <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">Regular transit pickup (125001 / 125033)</div>
             </div>
 
-            <div class="bento-card" style="padding: 1.25rem;">
+            <div class="bento-card" data-area="tosham bawani khera loharu 127040 127032" style="padding: 1.25rem;">
               <strong style="color: var(--color-forest-green);">Tosham &amp; Bawani Khera</strong>
               <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">Agricultural &amp; domestic pickup</div>
             </div>
 
-            <div class="bento-card" style="padding: 1.25rem;">
+            <div class="bento-card" data-area="rohtak maham meham 124001 124112 highway" style="padding: 1.25rem;">
               <strong style="color: var(--color-forest-green);">Rohtak &amp; Maham Highway</strong>
-              <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">Commercial &amp; passenger transit</div>
+              <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">Commercial &amp; passenger transit (124001)</div>
             </div>
 
-            <div class="bento-card" style="padding: 1.25rem;">
+            <div class="bento-card" data-area="delhi ncr haryana gurugram gurgaon 110001 122001" style="padding: 1.25rem;">
               <strong style="color: var(--color-forest-green);">Delhi NCR &amp; Haryana</strong>
-              <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">Dedicated flatbed dispatch</div>
+              <div style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 0.25rem;">Dedicated flatbed dispatch (10/15yr vehicles)</div>
             </div>
           </div>
         </div>
