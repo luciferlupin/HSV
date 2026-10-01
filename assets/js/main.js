@@ -457,6 +457,38 @@
       trust_4: "MoRTH Compliance",
       quote_title: "Request Vehicle Scrap Valuation",
       quote_sub: "Submit vehicle details for an auditable scrap value assessment and compliance roadmap."
+    }
+  };
+
+  function initLanguageSwitcher() {
+    const langBtns = document.querySelectorAll(".lang-btn");
+    if (!langBtns.length) return;
+
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      localStorage.setItem("hsv_lang", lang);
+
+      langBtns.forEach((btn) => {
+        btn.classList.toggle("is-active", btn.getAttribute("data-lang") === lang);
+      });
+
+      const t = translations[lang] || translations.en;
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (t[key]) {
+          el.textContent = t[key];
+        }
+      });
+    }
+
+    langBtns.forEach((btn) => {
+      btn.addEventListener("click", () => setLanguage(btn.getAttribute("data-lang")));
+    });
+
+    const savedLang = localStorage.getItem("hsv_lang") || "en";
+    if (savedLang === "hi") setLanguage("hi");
+  }
+
   // ==========================================================================
   // 13. GLOBAL SPOTLIGHT COMMAND PALETTE & SEARCH SYSTEM
   // ==========================================================================
