@@ -6,9 +6,9 @@
 (function () {
   "use strict";
 
-  const HSV_PHONE = "9896226697";
+  const HSV_PHONE = "9896980981";
   const HSV_PHONE_ALT = "9999929019";
-  const HSV_WHATSAPP_BASE = "https://wa.me/919896226697";
+  const HSV_WHATSAPP_BASE = "https://wa.me/919896980981";
 
   // Check prefers-reduced-motion
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -435,7 +435,7 @@
       hero_lead: "पारदर्शी स्क्रैप मूल्यांकन, निःशुल्क पिकअप, तत्काल बैंक भुगतान एवं परिवहन VAHAN पोर्टल से RC निरस्तीकरण सहायता (भिवानी, हरियाणा एवं दिल्ली)।",
       btn_get_quote: "मूल्यांकन कोट प्राप्त करें",
       btn_whatsapp: "विशेषज्ञ से व्हाट्सएप करें",
-      btn_call: "कॉल करें 9896226697 / 9999929019",
+      btn_call: "कॉल करें 9896980981 / 9999929019",
       trust_1: "VAHAN निरस्तीकरण",
       trust_2: "तत्काल IMPS भुगतान",
       trust_3: "डोरस्टेप टोइंग फ्लीट",
@@ -450,7 +450,7 @@
       hero_lead: "Direct end-of-life vehicle acquisition, auditable scrap valuation, doorstep recovery, and complete Parivahan VAHAN de-registration compliance across Bhiwani, Haryana & Delhi.",
       btn_get_quote: "GET VALUATION QUOTE",
       btn_whatsapp: "WHATSAPP SPECIALIST",
-      btn_call: "Call 9896226697 / 9999929019",
+      btn_call: "Call 9896980981 / 9999929019",
       trust_1: "VAHAN De-Registration",
       trust_2: "Instant IMPS Settlement",
       trust_3: "Doorstep Towing Fleet",

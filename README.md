@@ -5,7 +5,7 @@
 ## Company Details
 - **Company**: HSV AUTO RECYCLING
 - **Primary Contact**: Vivek Singh
-- **Phone / WhatsApp**: [+91 98962 26697](tel:9896226697)
+- **Phone / WhatsApp**: [+91 98969 80981](tel:9896980981)
 - **Email**: hsvautorecycling@gmail.com
 - **Location**: New Vidya Nagar, Bhiwani – 127021, Haryana, India
 - **Tagline**: *"We Deal In Scrap Vehicles"*
